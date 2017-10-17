@@ -168,5 +168,9 @@ cluFn7wTiGryunymYOu4RcffSxQluehd
                                                                                                                          
 read:errno=0 
 ```
-
+NOTE : Here is what **ign_eof** do 
+```plain
+-ign_eof
+           inhibit shutting down the connection when end of file is reached in the input.
+```
 
