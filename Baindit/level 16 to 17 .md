@@ -257,3 +257,13 @@ something
 something                                                                                                                
 ^C                           
 ```
+Now we can use the RSA key as SSH Private Key to connect to bandit 17
+
+```shell
+bandit16@bandit:~$ mkdir /tmp/microbot ; cd /tmp/microbot
+bandit16@bandit:/tmp/microbot$ nano ssh-keyl.private
+bandit16@bandit:/tmp/microbot$ chmod 600 ssh-keyl.private 
+bandit16@bandit:/tmp/microbot$ ssh -i ssh-keyl.private bandit17@localhost
+```
+
+Now I am Connected Lets See What is bandit17
