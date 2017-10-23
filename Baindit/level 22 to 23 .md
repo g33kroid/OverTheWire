@@ -165,3 +165,17 @@ Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
 
 But it Gave me Bandit 22 Password not bandit 23 Password, lets try to edit the script (Permission Denied) 
 
+So this has nothing to do with cron and crontab 
+
+all what i did was execute the script manually but change whoami with bandit 23 so all what we needed is the echo statmet 
+
+```shell
+bandit22@bandit:~$ cat /usr/bin/cronjob_bandit23.sh | grep echo                                                          
+mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+bandit22@bandit:~$ echo I am user bandit23 | md5sum | cut -d ' ' -f 1                                                    
+8ca319486bfbbc3663ea0fbe81326349                                                                                         
+bandit22@bandit:~$ cat /tmp/8ca319486bfbbc3663ea0fbe81326349                                                             
+jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n        
+```
+instead of I am user (Whoami) which is bandit22 we execute it manually and change it to bandit23
