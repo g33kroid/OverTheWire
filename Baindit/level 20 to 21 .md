@@ -48,3 +48,16 @@ bandit20@bandit:~$ ./suconnect
 Usage: ./suconnect <portnumber>
 This program will connect to the given port on localhost using TCP. If it receives the correct password from the other side, the next password is transmitted back.
 ```
+HERE is a 1 Step Solution 
+```shell
+bandit20@bandit:~$ echo "GbKksEFF4yrVs6il55v6gwY5aVje5f0j" | nc -nlvp 1234 &                                             
+[1] 1193                                                                                                                 
+bandit20@bandit:~$ Listening on [0.0.0.0] (family 0, port 1234)                                                          
+                                                                                                                         
+bandit20@bandit:~$ ./suconnect 1234                                                                                      
+Connection from [127.0.0.1] port 1234 [tcp/*] accepted (family 2, sport 32854)                                           
+Read: GbKksEFF4yrVs6il55v6gwY5aVje5f0j                                                                                   
+Password matches, sending next password                                                                                  
+gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr                                                                                         
+[1]+  Done                    echo "GbKksEFF4yrVs6il55v6gwY5aVje5f0j" | nc -nlvp 1234    
+```
