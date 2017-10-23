@@ -111,3 +111,40 @@ drwx------  2 bandit21 bandit21 4096 Oct 23 09:09 .cache
 -r--------  1 bandit21 bandit21   33 Sep 28 14:04 .prevpass                                                              
 -rw-r--r--  1 bandit21 bandit21  675 Apr  9  2014 .profile  
 ```
+Lets Check the Cron.d Directory 
+
+```shell
+bandit21@bandit:~$ ls -la /etc/cron.d/                                                                                   
+total 32                                                                                                                 
+drwxr-xr-x   2 root root 4096 Sep 28 14:04 .
+drwxr-xr-x 119 root root 4096 Oct 23 08:27 ..
+-rw-r--r--   1 root root  102 Feb  9  2013 .placeholder                                                                  
+-rw-r--r--   1 root root  355 May 25  2013 cron-apt                                                                      
+-rw-r--r--   1 root root  120 Sep 28 14:04 cronjob_bandit22                                                              
+-rw-r--r--   1 root root  122 Sep 28 14:04 cronjob_bandit23                                                              
+-rw-r--r--   1 root root  120 Sep 28 14:04 cronjob_bandit24                                                              
+-rw-r--r--   1 root root  510 Aug  4 20:03 php5                                                                          
+```
+Checking cronjob_bandit22 
+```shell
+bandit21@bandit:~$ cat /etc/cron.d/cronjob_bandit22                                                                      
+@reboot bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null                                                               
+* * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null      
+```
+it run a script in /usr/bin and put the output to /dev/null
+
+lets go ahead and read that script 
+```shell
+bandit21@bandit:~$ cat /usr/bin/cronjob_bandit22.sh                                                                      
+#!/bin/bash                                                                                                              
+chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv                                                                          
+cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv    
+```
+Lets Run it 
+```shell
+bandit21@bandit:~$ sh /usr/bin/cronjob_bandit22.sh                                                                       
+chmod: changing permissions of '/tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv': Operation not permitted                          
+/usr/bin/cronjob_bandit22.sh: 3: /usr/bin/cronjob_bandit22.sh: cannot create /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv: Permi
+ssion denied 
+```
+Permission Denied but who cares we have the password :D 
