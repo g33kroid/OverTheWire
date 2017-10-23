@@ -147,4 +147,9 @@ chmod: changing permissions of '/tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv': Operatio
 /usr/bin/cronjob_bandit22.sh: 3: /usr/bin/cronjob_bandit22.sh: cannot create /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv: Permi
 ssion denied 
 ```
-Permission Denied but who cares we have the password :D 
+Lets See what is the file / Folder in /tmp/ 
+
+```shell
+bandit21@bandit:~$ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv                                                             
+Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI           
+```
