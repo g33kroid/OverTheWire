@@ -115,3 +115,41 @@ drwx------  2 bandit25 bandit25 4096 Oct 29 06:02 .cache
 ```
 
 We have SSH Key Lets Connect to level 26 Easy 
+
+```shell
+  _                     _ _ _   ___   __
+ | |                   | (_) | |__ \ / /
+ | |__   __ _ _ __   __| |_| |_   ) / /_
+ | '_ \ / _` | '_ \ / _` | | __| / / '_ \
+ | |_) | (_| | | | | (_| | | |_ / /| (_) |
+ |_.__/ \__,_|_| |_|\__,_|_|\__|____\___/
+Connection to bandit.labs.overthewire.org closed.
+bandit25@bandit:~$ id
+uid=11025(bandit25) gid=11025(bandit25) groups=11025(bandit25)
+bandit25@bandit:~$ cat /etc/passwd | grep bandit26
+bandit26:x:11026:11026:bandit level 26:/home/bandit26:/usr/bin/showtext
+bandit25@bandit:~$ cat /usr/bin/showtext
+#!/bin/sh
+
+export TERM=linux
+
+more ~/text.txt
+exit 0
+```
+ Not As expected I am Getting Disconnected
+ 
+ This Level has an amazing method of extracting level 27 password 
+ 
+ First Minimize the termainal as much possible 
+ then it will show the ssh banner and **more**
+ 
+ we can Press **v** to use **vi** , The good thing about vi it can execute shell commands 
+ 
+ now we can type the following **:e /etc/bandit_pass/bandit26** to edit bandit26 password file 
+  
+ Flag is here 
+ ```text
+ 5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
+ ```
+ 
+ Amazing level 
