@@ -59,5 +59,23 @@ def main(argc, argv):
 
 The Above code we give it a path and the issue we can't read the file , Permission Denied so we need to find a way around it 
 
+Testing the file with ltrace
+
+```shell
+leviathan2@leviathan:~$ ltrace ./printfile /etc/leviathan_pass/leviathan2
+__libc_start_main(0x804852d, 2, 0xffffd7c4, 0x8048600 <unfinished ...>
+access("/etc/leviathan_pass/leviathan2", 4)                  = 0
+snprintf("/bin/cat /etc/leviathan_pass/lev"..., 511, "/bin/cat %s", "/etc/leviathan_pass/leviathan2") = 39
+system("/bin/cat /etc/leviathan_pass/lev"...ougahZi8Ta
+ <no return ...>
+--- SIGCHLD (Child exited) ---
+<... system resumed> )                                       = 0
++++ exited (status 0) +++
+```
+so what happen is access do permission check if we have access to read the file or not
+and what cat do is do it don't need the full path for the file 
+so if we created a symbolic link between tmp.txt and /etc/leviathan_pass/leviathan3 
+we can get both rules correct at same time
+
 
 
