@@ -67,4 +67,67 @@ def main(argc, argv):
     return system_rc
 ```
 So its looking for argv[4] to be 7132 a specific thing otherwise print wrong 
+**HINT** Brute force the service 
 
+So I wrote bash script to brute force the executable 
+
+```shell
+leviathan6@leviathan:~$ mkdir /tmp/menz
+leviathan6@leviathan:~$ cp leviathan6 /tmp/menz
+leviathan6@leviathan:~$ cd /tmp/menz/
+leviathan6@leviathan:/tmp/menz$ nano cracker.sh
+leviathan6@leviathan:/tmp/menz$ cat cracker.sh
+#!/bin/bash
+
+for i in {0000..9999}
+do
+echo "Testing Pin $i"
+./leviathan6 $i
+done
+
+```
+Lets give it executable permission and run it 
+
+```shell
+leviathan6@leviathan:/tmp/menz$ chmod +x cracker.sh
+```
+running the script below is snippet of the output
+
+```shell
+Testing Pin 7121
+Wrong
+Testing Pin 7122
+Wrong
+Testing Pin 7123
+$
+```
+We Got a Shell
+```shell
+$ whoami
+leviathan6
+```
+Now this issue because i copied the file to /tmp/ so lets edit the script to use the original file 
+
+```shell
+leviathan6@leviathan:/tmp/menz$ cat cracker.sh
+#!/bin/bash
+
+for i in {0000..9999}
+do
+echo "Testing Pin $i"
+~/leviathan6 $i
+done
+```
+Run it agian Or just simply take the 4digit code that was found and run the executable in original directory it will have same effect
+```shell
+Testing Pin 7122
+Wrong
+Testing Pin 7123
+$ whoami
+leviathan7
+```
+and here is our flag
+```shell
+$ cat /etc/leviathan_pass/leviathan7
+ahy7MaeBo9
+```
