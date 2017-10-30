@@ -81,10 +81,10 @@ OMQEMDUEQMEK
 We can decrypt it by hand or i created a simple script to decrypt the key
 
 ```python
-dic = {'A':'M','B':'N','C':'O','D':'P','E':'Q','F':'R',
-'G':'S','H':'T','I':'U','J':'V','K':'W','L':'X','M':'Y','N':'Z',
-'O':'A','P':'B','Q':'C','R':'D','S':'E','T':'F',
-'U':'G','V':'H','W':'I','X':'J','Y':'K','Z':'L'}
+dic = {'M':'A','N':'B','O':'C','P':'D','Q':'E','R':'F','S':'G','T':'H',
+'U':'I','V':'J','W':'K','X':'L','Y':'M','Z':'N',
+'A':'O','B':'P','C':'Q','D':'R','E':'S','F':'T','G':'U','H':'V','I':'W',
+'J':'X','K':'Y','L':'Z'}
 encflag = "OMQEMDUEQMEK"
 
 flag = ""
@@ -93,4 +93,8 @@ for i in encflag:
 
 print (flag)
 ```
-**NOTE** This script is not yet complete
+And here is our flag
+```shell
+CAESARISEASY
+```
+
