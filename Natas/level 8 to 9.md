@@ -40,4 +40,14 @@ Input secret: <input name=secret><br>
 <div id="viewsource"><a href="index-source.html">View sourcecode</a></div>
 </div>
 ```
-so we have encodedSecret which we need to decode **bin2hex(strrev(base64_encode($secret)))**
+so we have encodedSecret which we need to decode **bin2hex(strrev(base64_encode($secret)))** using the script below
+
+```php
+<?php
+$encodedSecret = "3d3d516343746d4d6d6c315669563362";
+$decrypt = base64_decode(strrev(hex2bin($encodedSecret)));
+echo $decrypt;
+?>
+```
+
+and here is the password : oubWYf2kBq
