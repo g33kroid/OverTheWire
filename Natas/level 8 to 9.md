@@ -51,3 +51,18 @@ echo $decrypt;
 ```
 
 and here is the password : oubWYf2kBq
+
+When we submit the password 
+
+```html
+<div id="content">
+
+Access granted. The password for natas9 is W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl
+<form method="post">
+Input secret: <input name="secret"><br>
+<input type="submit" name="submit">
+</form>
+
+<div id="viewsource"><a href="index-source.html">View sourcecode</a></div>
+</div>
+```
